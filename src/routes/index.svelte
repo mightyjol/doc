@@ -1,11 +1,10 @@
 <script>
-	import {user} from '../firebase.js'
+	import user from '../firebase/user.js'
+	import LoginButton from '../components/auth/LoginButton.svelte';
+	import LogoutButton from '../components/auth/LogoutButton.svelte';
 
-	$:console.log(user)
+	$: console.error('currentUser:', $user)
 </script>
-
-<style>
-</style>
 
 <svelte:head>
 	<title>doctor - home</title>
@@ -19,3 +18,13 @@ TODO Signin
 if admin => show rdv
 if user show homepage
 </pre>
+<br>
+
+
+{#if $user}
+	logged as : {$user.uid}
+	<LogoutButton />
+{:else}
+	<LoginButton />
+{/if}
+
