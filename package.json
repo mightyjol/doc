@@ -2,6 +2,7 @@
   "name": "sapper-template-now",
   "description": "sapper template integrated with now",
   "version": "0.0.1",
+  "license": "UNLICENSED",
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper build --legacy",
@@ -15,14 +16,18 @@
   "dependencies": {
     "@firebase/app": "^0.4.3",
     "@firebase/auth": "^0.11.2",
+    "@fullcalendar/core": "^4.1.0",
+    "@fullcalendar/daygrid": "^4.1.0",
+    "body-parser": "^1.19.0",
     "bulma": "^0.7.5",
     "compression": "^1.7.1",
+    "express-session": "^1.16.1",
     "firebase": "^6.0.4",
+    "node-fetch": "^2.6.0",
     "now-sapper": "^0.23.0",
     "polka": "^0.5.0",
-    "rxfire": "^3.4.8",
-    "rxjs": "^6.5.2",
-    "sirv": "^0.4.0"
+    "sirv": "^0.4.0",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -43,7 +48,7 @@
     "rollup-plugin-replace": "^2.0.0",
     "rollup-plugin-svelte": "^5.0.1",
     "rollup-plugin-terser": "^4.0.4",
-    "sapper": "^0.26",
+    "sapper": "^0.27.1",
     "svelte": "^3.0.0"
   }
 }

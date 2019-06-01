@@ -25,7 +25,11 @@ export default {
 				dev,
 				hydratable: true,
 				css: function (css) {
-			        css.write('public/main.css');
+			        css.write('static/css/main.css');
+		      	},
+		      	 onwarn: (warning, handler) => {
+			        // let Rollup handle all other warnings normally
+			        //handler(warning);
 		      	}
 			}),
 			resolve(),

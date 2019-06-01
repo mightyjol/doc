@@ -1,10 +1,6 @@
-import { readable } from 'svelte/store';
-import { auth } from './firebase.js';
+import { writable } from 'svelte/store'
 
-export default readable(null, function start(set) {
-	auth.onAuthStateChanged(user => {
-		set(user);
-	});
+//TODO refactor that into the session
+let user = writable(undefined)
 
-	return function stop() {};
-});
+export default user;

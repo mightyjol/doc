@@ -10,18 +10,32 @@ export const userKey = {};
 export const auth = app.auth()
 export const db = app.firestore()
 
+//TODO move login/signup to server ?
+//TODO add a check to see if user has rights to client
 export const login = (email, password) => {
     console.log('logging in under ', email, password);
-	return auth.signInWithEmailAndPassword(email, password)
-    .then(data => console.log('finished logging in:', data))
+    let promise = auth.signInWithEmailAndPassword(email, password)
+    
+    promise.then(data => {
+    	 
+    })
     .catch(e => console.error(e))
+	
+	return promise
 }
 
 export const loginTest = () => {
     return login('test@test.com', 'testing')
 }
 
-export const signup = (email, password) => {
+export const signup = (data) => {
+	data.clients = ['MrZ0HvxcOqoKmdeUm2ca'];
+	data.isActive = false;
 	//TODO call to server
-	return auth.createUserWithEmailAndPassword(email, password)
+	let promise = auth.createUserWithEmailAndPassword(data.email, data.password);
+	promise.then(res => {
+		db.collection('users').doc(res.user.uid).set(data);
+	})
+
+	return promise
 }
