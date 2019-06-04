@@ -12,8 +12,9 @@
 	import { loginTest } from '../firebase/firebase.js'	
 	import { goto } from '@sapper/app';
 
-	let email = '';
-	let password = '';
+	//let email = 'test787@test.com';
+	let email = 'test@test.com';
+	let password = 'testing';
 </script>
 
 <style>
@@ -39,10 +40,10 @@
 						<div class="card-content">
 							<div class="content has-text-centered">
 								<div class="field">
-									<input class="input" type="email" placeholder="Email">
+									<input bind:value="{email}" class="input" type="email" placeholder="Email">
 								</div>
 								<div class="field">
-									<input class="input" type="password" placeholder="Password">
+									<input bind:value="{password}" class="input" type="password" placeholder="Password">
 								</div>
 								<div class="field">
 									<LoginButton {email} {password} large="true" redirect="/rdv"/>	

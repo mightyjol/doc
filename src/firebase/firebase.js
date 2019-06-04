@@ -29,11 +29,15 @@ export const loginTest = () => {
 }
 
 export const signup = (data) => {
+	let pwd = data.password;
+	delete data['password']
+
 	data.clients = ['MrZ0HvxcOqoKmdeUm2ca'];
 	data.isActive = false;
 	//TODO call to server
-	let promise = auth.createUserWithEmailAndPassword(data.email, data.password);
+	let promise = auth.createUserWithEmailAndPassword(data.email, pwd);
 	promise.then(res => {
+		data.uid = res.user.uid
 		db.collection('users').doc(res.user.uid).set(data);
 	})
 

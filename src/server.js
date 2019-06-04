@@ -1,5 +1,5 @@
 import sirv from 'sirv';
-import polka from 'polka';
+import express from 'express';
 import compression from 'compression';
 //import { v4 as uuid } from 'uuid';
 import session from 'express-session';
@@ -9,7 +9,7 @@ import * as sapper from '@sapper/server';
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
 
-const app = polka() // You can also use Express
+const app = express() // You can also use Express
 	.use(
 		compression({ threshold: 0 }),
 		sirv('static', { dev }),
@@ -23,7 +23,7 @@ const app = polka() // You can also use Express
 			session: (req, res) => {
 				if(req.session.user !== undefined){
 					return {
-						user: JSON.parse(req.session.user)
+						user: JSON.parse(req.session.user) //todo replace this with a firebase call
 					}
 				}
 
@@ -33,11 +33,11 @@ const app = polka() // You can also use Express
 		})
 	);
 
-export default app.handler // Remove .handler when using Express
-
-if (!process.env.NOW_REGION) {
-	app.listen(PORT, err => {
-		if (err) console.log('error', err)
-	})
+if (require.main === module) {
+    // only listen when started as main
+    app.listen(PORT, err => {
+        if (err) console.log('error', err);
+    });
 }
-	
+ 
+exports.app = app // Remove .handler when using Express

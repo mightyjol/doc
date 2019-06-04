@@ -11,8 +11,13 @@
 
 <script>
 	import { signup, loginTest } from '../firebase/firebase.js'	
+	import { goto, stores } from '@sapper/app'
+	import user from '../firebase/user.js'
+	import { post } from './api/_api.js'
+	
+	let { session } = stores();
 
-	let email = 'testing' + Math.round(Math.random() * 1000) + '@testing.com';
+	let email = 'test' + Math.round(Math.random() * 1000) + '@test.com';
 	let name = 'test test';
 	let password = 'testing';
 	let passwordbis = 'testing';
@@ -30,11 +35,20 @@
 		}
 
 		await signup(data)
+		.then(() => {
+			user.set(data);
+			session.update(sess => {
+				sess.user = data
+				return sess
+			})
+			post('api/user', {
+				user: JSON.stringify(data)
+			})
+		})
 		.catch(e => {
 			return alert("erreur lors de l'inscription");
 		});
 
-		await loginTest()
 		goto('/confirmation')
 	}
 </script>

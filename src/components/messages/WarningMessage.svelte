@@ -31,9 +31,15 @@
 		<div class="media-content">
 			<div class="content">
 				<p>
-					<strong>{title}</strong>  
+					<strong>
+						<slot name="title">
+							{title}
+						</slot>
+					</strong>  
 					<br>
-					{content}
+					<slot name="content">
+						{content}
+					</slot>
 				</p>
 			</div>
 		</div>

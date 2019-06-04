@@ -5,7 +5,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "dev": "sapper dev",
-    "build": "sapper build --legacy",
+    "build:sapper": "sapper build --legacy",
     "export": "sapper export --legacy",
     "start": "node __sapper__/build",
     "now": "sapper build --legacy && now",
@@ -18,9 +18,12 @@
     "@firebase/auth": "^0.11.2",
     "@fullcalendar/core": "^4.1.0",
     "@fullcalendar/daygrid": "^4.1.0",
+    "@fullcalendar/interaction": "^4.1.0",
+    "@fullcalendar/list": "^4.2.0",
     "body-parser": "^1.19.0",
     "bulma": "^0.7.5",
     "compression": "^1.7.1",
+    "express": "^4.17.1",
     "express-session": "^1.16.1",
     "firebase": "^6.0.4",
     "node-fetch": "^2.6.0",
@@ -49,6 +52,7 @@
     "rollup-plugin-svelte": "^5.0.1",
     "rollup-plugin-terser": "^4.0.4",
     "sapper": "^0.27.1",
-    "svelte": "^3.0.0"
+    "svelte": "^3.0.0",
+    "yarn": "^1.16.0"
   }
 }

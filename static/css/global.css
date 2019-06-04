@@ -1,0 +1,19 @@
+.fc-highlight{
+	background-color: grey !important;
+}
+
+.fc-content-skeleton, .fc-highlight-skeleton{
+	pointer-events: none;
+}
+
+table .fc-body{
+	cursor: pointer;
+}
+
+table .fc-disabled-day{
+	cursor: not-allowed !important;
+}
+
+.fc-unthemed td.fc-today{
+	background-color: transparent !important;
+}
