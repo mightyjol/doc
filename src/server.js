@@ -1,5 +1,5 @@
 import sirv from 'sirv';
-import express from 'express';
+import polka from 'polka';
 import compression from 'compression';
 //import { v4 as uuid } from 'uuid';
 import session from 'express-session';
@@ -9,7 +9,7 @@ import * as sapper from '@sapper/server';
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
 
-const app = express() // You can also use Express
+const app = polka() // You can also use Express
 	.use(
 		compression({ threshold: 0 }),
 		sirv('static', { dev }),
@@ -39,5 +39,5 @@ if (require.main === module) {
         if (err) console.log('error', err);
     });
 }
- 
-exports.app = app // Remove .handler when using Express
+
+export default app.handler

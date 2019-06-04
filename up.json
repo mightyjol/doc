@@ -1,5 +1,14 @@
 {
     "name": "docteurlebrun",
     "profile": "up-cli",
-    "regions": ["eu-west-3"]
+    "regions": ["eu-west-3"],
+    "stages": {
+    	"production": {},
+    	"staging": {}
+    },
+    "hooks": {
+    	"prebuild": "yarn install --production",
+        "build": "",
+        "postdeploy": "yarn install --offline"
+    }
 }

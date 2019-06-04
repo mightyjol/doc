@@ -5,13 +5,15 @@
   "license": "UNLICENSED",
   "scripts": {
     "dev": "sapper dev",
-    "build:sapper": "sapper build --legacy",
+    "build": "sapper build --legacy",
     "export": "sapper export --legacy",
     "start": "node __sapper__/build",
-    "now": "sapper build --legacy && now",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
-    "test": "run-p --race dev cy:run"
+    "test": "run-p --race dev cy:run",
+    "deploy": "yarn install && yarn build && up -v",
+    "deploy:staging": "yarn install && yarn build && up staging -v",
+    "deploy:production": "yarn install && yarn build && up production -v" 
   },
   "dependencies": {
     "@firebase/app": "^0.4.3",
@@ -23,11 +25,9 @@
     "body-parser": "^1.19.0",
     "bulma": "^0.7.5",
     "compression": "^1.7.1",
-    "express": "^4.17.1",
     "express-session": "^1.16.1",
     "firebase": "^6.0.4",
     "node-fetch": "^2.6.0",
-    "now-sapper": "^0.23.0",
     "polka": "^0.5.0",
     "sirv": "^0.4.0",
     "uuid": "^3.3.2"
