@@ -1,0 +1,20 @@
+{
+  "functions": {
+    "predeploy": [
+      "node predeploy.js"
+    ],
+    "source": "functions"
+  },
+  "hosting": {
+    "public": "static",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [{
+      "source": "**",
+      "function": "ssr"
+    }]
+  }
+}

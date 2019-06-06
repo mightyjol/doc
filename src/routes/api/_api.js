@@ -1,5 +1,5 @@
 const dev = process.env.NODE_ENV === 'development';
-const base = dev ? 'http://localhost:3000' : 'https://drlebrun.insomniak.now.sh';
+const base = dev ? 'http://localhost:' + process.env.PORT : 'https://doctor-84be5.firebaseapp.com';
 
 function send({ method, path, data, token }) {
 	const fetch = process.browser ? window.fetch : require('node-fetch').default;

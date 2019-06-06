@@ -1,0 +1,89 @@
+[debug] [2019-06-05T15:28:49.218Z] ----------------------------------------------------------------------
+[debug] [2019-06-05T15:28:49.229Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2019-06-05T15:28:49.229Z] CLI Version:   6.5.0
+[debug] [2019-06-05T15:28:49.229Z] Platform:      linux
+[debug] [2019-06-05T15:28:49.229Z] Node Version:  v8.15.1
+[debug] [2019-06-05T15:28:49.229Z] Time:          Wed Jun 05 2019 17:28:49 GMT+0200 (CEST)
+[debug] [2019-06-05T15:28:49.230Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-05T15:28:49.236Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-05T15:28:49.236Z] > authorizing via signed-in user
+[debug] [2019-06-05T15:28:49.236Z] [iam] checking project doctor-84be5 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-06-05T15:28:49.237Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/doctor-84be5:testIamPermissions  
+
+[debug] [2019-06-05T15:28:50.071Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-05T15:28:50.074Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/doctor-84be5  
+ 
+[debug] [2019-06-05T15:28:50.415Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'doctor-84be5'...
+[info] 
+[info] i  deploying functions, hosting
+[info] Running command: node predeploy.js
+[info] ✔  functions: Finished running predeploy script.
+[debug] [2019-06-05T15:28:51.884Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "@firebase/auth": "^0.11.2",
+    "@firebase/firestore": "^1.3.4",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-session": "^1.16.1",
+    "firebase-admin": "~7.0.0",
+    "firebase-functions": "^2.2.0",
+    "sirv": "^0.4.2"
+  },
+  "engines": {
+    "node": "8"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2019-06-05T15:28:51.884Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/doctor-84be5?view=CONSUMER_VIEW  
+ 
+[debug] [2019-06-05T15:28:51.885Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/doctor-84be5?view=CONSUMER_VIEW  
+ 
+[debug] [2019-06-05T15:28:53.235Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-05T15:28:53.338Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2019-06-05T15:28:53.339Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/doctor-84be5  
+ 
+[debug] [2019-06-05T15:28:54.097Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-05T15:28:54.097Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/516365878545:getServerAppConfig  
+ 
+[debug] [2019-06-05T15:28:54.357Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-05T15:28:54.361Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/doctor-84be5/versions  
+
+[debug] [2019-06-05T15:28:57.071Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2019-06-05T15:28:57.073Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/doctor-84be5/configs  
+ 
+[debug] [2019-06-05T15:28:57.985Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (3.18 MB) for uploading
+[debug] [2019-06-05T15:28:58.591Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/doctor-84be5/locations/us-central1/functions:generateUploadUrl  
+ 
+[debug] [2019-06-05T15:29:27.559Z] ----------------------------------------------------------------------
+[debug] [2019-06-05T15:29:27.560Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2019-06-05T15:29:27.561Z] CLI Version:   6.5.0
+[debug] [2019-06-05T15:29:27.561Z] Platform:      linux
+[debug] [2019-06-05T15:29:27.561Z] Node Version:  v8.15.1
+[debug] [2019-06-05T15:29:27.561Z] Time:          Wed Jun 05 2019 17:29:27 GMT+0200 (CEST)
+[debug] [2019-06-05T15:29:27.561Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-05T15:29:27.566Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-05T15:29:27.567Z] > authorizing via signed-in user
+[debug] [2019-06-05T15:29:27.567Z] [iam] checking project doctor-84be5 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-06-05T15:29:27.568Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/doctor-84be5:testIamPermissions  
+
+[debug] [2019-06-05T15:29:28.429Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-05T15:29:28.434Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/doctor-84be5  
+ 
+[debug] [2019-06-05T15:29:28.745Z] <<< HTTP RESPONSE 200
